@@ -23,13 +23,13 @@ import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import android.hardware.biometrics.BiometricManager;
-import android.hardware.biometrics.BiometricPrompt;
+// import android.hardware.biometrics.BiometricManager;
+// import android.hardware.biometrics.BiometricPrompt;
 import android.os.Build;
 import android.os.SystemClock;
 
 import androidx.annotation.IdRes;
-import androidx.core.content.ContextCompat;
+// import androidx.core.content.ContextCompat;
 import androidx.core.os.CancellationSignal;
 
 import android.os.Vibrator;
@@ -76,7 +76,7 @@ import org.telegram.ui.ActionBar.Theme;
 
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.concurrent.Executor;
+// import java.util.concurrent.Executor;
 
 import tw.nekomimi.nekogram.NekoConfig;
 import tw.nekomimi.nekogram.utils.VibrateUtil;
@@ -999,40 +999,40 @@ public class PasscodeView extends FrameLayout implements NotificationCenter.Noti
         }
         Activity parentActivity = (Activity) getContext();
         if (parentActivity != null && fingerprintView.getVisibility() == VISIBLE && !ApplicationLoader.mainInterfacePaused) {
-            if (Build.VERSION.SDK_INT >= 28) {
-                try {
-                    boolean useBiometric;
-                    if (Build.VERSION.SDK_INT >= 29) {
-                        BiometricManager biometricManager = (BiometricManager) ApplicationLoader.applicationContext.getSystemService(Context.BIOMETRIC_SERVICE);
-                        if (Build.VERSION.SDK_INT >= 30) {
-                            useBiometric = biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_WEAK) == BiometricManager.BIOMETRIC_SUCCESS;
-                        } else {
-                            useBiometric = biometricManager.canAuthenticate() == BiometricManager.BIOMETRIC_SUCCESS;
-                        }
-                    } else {
-                        FingerprintManagerCompat fingerprintManager = FingerprintManagerCompat.from(ApplicationLoader.applicationContext);
-                        useBiometric = fingerprintManager.isHardwareDetected() && fingerprintManager.hasEnrolledFingerprints();
-                    }
-                    if (useBiometric) {
-                        Executor executor = ContextCompat.getMainExecutor(parentActivity);
-                        BiometricPrompt.Builder builder = new BiometricPrompt.Builder(parentActivity)
-                                .setTitle(LocaleController.getString("NekoX", R.string.NekoX))
-                                .setNegativeButton(LocaleController.getString("Canel", R.string.Cancel), executor, (dialog, which) -> { });
-                        if (Build.VERSION.SDK_INT >= 29) {
-                            builder.setConfirmationRequired(false);
-                        }
-                        builder.build().authenticate(new android.os.CancellationSignal(), executor, new BiometricPrompt.AuthenticationCallback() {
-                            @Override
-                            public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {
-                                processDone(true);
-                            }
-                        });
-                        return;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+//            if (Build.VERSION.SDK_INT >= 28) {
+//                try {
+//                    boolean useBiometric;
+//                    if (Build.VERSION.SDK_INT >= 29) {
+//                        BiometricManager biometricManager = (BiometricManager) ApplicationLoader.applicationContext.getSystemService(Context.BIOMETRIC_SERVICE);
+//                        if (Build.VERSION.SDK_INT >= 30) {
+//                            useBiometric = biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_WEAK) == BiometricManager.BIOMETRIC_SUCCESS;
+//                        } else {
+//                            useBiometric = biometricManager.canAuthenticate() == BiometricManager.BIOMETRIC_SUCCESS;
+//                        }
+//                    } else {
+//                        FingerprintManagerCompat fingerprintManager = FingerprintManagerCompat.from(ApplicationLoader.applicationContext);
+//                        useBiometric = fingerprintManager.isHardwareDetected() && fingerprintManager.hasEnrolledFingerprints();
+//                    }
+//                    if (useBiometric) {
+//                        Executor executor = ContextCompat.getMainExecutor(parentActivity);
+//                        BiometricPrompt.Builder builder = new BiometricPrompt.Builder(parentActivity)
+//                                .setTitle(LocaleController.getString("NekoX", R.string.NekoX))
+//                                .setNegativeButton(LocaleController.getString("Canel", R.string.Cancel), executor, (dialog, which) -> { });
+//                        if (Build.VERSION.SDK_INT >= 29) {
+//                            builder.setConfirmationRequired(false);
+//                        }
+//                        builder.build().authenticate(new android.os.CancellationSignal(), executor, new BiometricPrompt.AuthenticationCallback() {
+//                            @Override
+//                            public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {
+//                                processDone(true);
+//                            }
+//                        });
+//                        return;
+//                    }
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
             try {
                 if (fingerprintDialog != null && fingerprintDialog.isShowing()) {
                     return;
