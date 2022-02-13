@@ -31684,7 +31684,7 @@ public class TLRPC {
 
         public void readParams(AbstractSerializedData stream, boolean exception) {
             flags = stream.readInt32(exception);
-            history_deleted = (flags & 1) != 0;
+            history_deleted = false;
             id = stream.readInt32(exception);
         }
 
@@ -53540,6 +53540,7 @@ public class TLRPC {
         public int realId; //custom
         public int stickerVerified = 1; //custom
         public boolean isThreadMessage; //custom
+        public boolean isDeleted = false;
         public String translatedMessage; //custom
         public boolean translated; // custom
         public boolean hide; // custom
