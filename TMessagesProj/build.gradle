@@ -76,7 +76,7 @@ android {
     buildToolsVersion "31.0.0"
     ndkVersion rootProject.ext.ndkVersion
 
-    defaultConfig.applicationId = "nekox.messenger"
+    defaultConfig.applicationId = "com.xtaolabs.pagergram"
 
     splits {
 
@@ -181,7 +181,7 @@ android {
 
     signingConfigs {
         release {
-            storeFile project.file("release.keystore")
+            storeFile project.file("pagermaid.jks")
             storePassword keystorePwd
             keyAlias alias
             keyPassword pwd
@@ -331,7 +331,7 @@ android {
 
     applicationVariants.all { variant ->
         variant.outputs.all { output ->
-            outputFileName = outputFileName.replace("TMessagesProj", "NekoX-v" + versionName)
+            outputFileName = outputFileName.replace("TMessagesProj", "PagerGram-v" + versionName)
         }
     }
 

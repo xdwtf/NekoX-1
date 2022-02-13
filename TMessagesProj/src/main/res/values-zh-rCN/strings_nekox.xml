@@ -270,4 +270,10 @@
     <string name="showSeconds">以秒为单位显示时间戳</string>
     <string name="rememberAllBackMessages">记住所有点击的回复</string>
     <string name="ShareMessages">分享</string>
+    <string name="channelAlias">频道别名</string>
+    <string name="channelAliasDetails">需要先开启标示频道发言</string>
+    <string name="setChannelAliasName">设置别名</string>
+    <string name="labelChannelUser">标示频道发言</string>
+    <string name="labelChannelUserDetails">如果消息发送者是一个频道，则将会在消息上显示 \"📢\" 标记</string>
+    <string name="DeletedMessage">已删除</string>
 </resources>
