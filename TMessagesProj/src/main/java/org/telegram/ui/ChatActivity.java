@@ -10383,7 +10383,8 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                 totalPinnedMessagesCount = 0;
                 updatePinnedMessageView(true);
             }
-            getMessagesController().deleteDialog(dialog_id, 1, revoke);
+            // getMessagesController().deleteDialog(dialog_id, 1, revoke);
+            getMessagesController().deleteDialog(dialog_id, 1, revoke, true);
             clearingHistory = false;
             clearHistory(false, null);
             chatAdapter.notifyDataSetChanged();
@@ -13682,6 +13683,7 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                             File f = FileLoader.getPathToMessage(messageObject.messageOwner);
                             if (f.exists()) {
                                 canSave = true;
+                                sendSecretMessageRead(messageObject, true);
                             }
                         }
                         if (canSave) {
@@ -16582,19 +16584,19 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                 }
             }
         } else if (id == NotificationCenter.removeAllMessagesFromDialog) {
-            long did = (Long) args[0];
-            if (dialog_id == did) {
-                if (threadMessageId != 0) {
-                    if (forwardEndReached[0]) {
-                        forwardEndReached[0] = false;
-                        hideForwardEndReached = false;
-                        chatAdapter.notifyItemInserted(0);
-                    }
-                    getMessagesController().addToViewsQueue(threadMessageObject);
-                } else {
-                    clearHistory((Boolean) args[1], (TLRPC.TL_updates_channelDifferenceTooLong) args[2]);
-                }
-            }
+//            long did = (Long) args[0];
+//            if (dialog_id == did) {
+//                if (threadMessageId != 0) {
+//                    if (forwardEndReached[0]) {
+//                        forwardEndReached[0] = false;
+//                        hideForwardEndReached = false;
+//                        chatAdapter.notifyItemInserted(0);
+//                    }
+//                    getMessagesController().addToViewsQueue(threadMessageObject);
+//                } else {
+//                    clearHistory((Boolean) args[1], (TLRPC.TL_updates_channelDifferenceTooLong) args[2]);
+//                }
+//            }
         } else if (id == NotificationCenter.screenshotTook) {
             updateInformationForScreenshotDetector();
         } else if (id == NotificationCenter.blockedUsersDidLoad) {
@@ -25215,6 +25217,9 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
             }
         }
         if (message.isVideo()) {
+            sendSecretMessageRead(message, true);
+        }
+        if (isSecretChat() && (message.isPhoto() || message.isGif() || message.isNewGif())) {
             sendSecretMessageRead(message, true);
         }
         PhotoViewer.getInstance().setParentActivity(getParentActivity(), themeDelegate);
