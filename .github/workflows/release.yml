@@ -398,10 +398,10 @@ jobs:
               sleep 1
             done
           }
-          upload apks/NekoX-*-mini-*-release.apk
-          upload apks/NekoX-*-mini-*-releaseNoGcm.apk
-          upload apks/NekoX-*-full-*-release.apk
-          upload apks/NekoX-*-full-*-releaseNoGcm.apk
+          upload apks/PagerGram-*-mini-*-release.apk
+          upload apks/PagerGram-*-mini-*-releaseNoGcm.apk
+          upload apks/PagerGram-*-full-*-release.apk
+          upload apks/PagerGram-*-full-*-releaseNoGcm.apk
           pkill telegram-bot
   play:
     name: Publish to Play Store

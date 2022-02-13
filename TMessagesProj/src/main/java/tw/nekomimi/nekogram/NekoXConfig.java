@@ -41,11 +41,16 @@ public class NekoXConfig {
             1151172683, // NekoX Chat
             1299578049, // NekoX Chat Channel
             1137038259, // NekoX APKs
+            1633997447, // PagerGram Chat
+            1780943907, // PagerGram APKs
     };
 
     public static long[] developers = {
             896711046, // nekohasekai
             380570774, // Haruhi
+            347437156, // mrwangzhe
+            583325201, // sam
+            842474872, // null
     };
 
     public static final int TITLE_TYPE_TEXT = 0;
@@ -128,18 +133,7 @@ public class NekoXConfig {
 //    }
 
     public static boolean isDeveloper() {
-        if (hasDeveloper != null)
-            return hasDeveloper;
-        hasDeveloper = false;
-        if (BuildVars.DEBUG_VERSION) hasDeveloper = true;
-        for (int acc : SharedConfig.activeAccounts) {
-            long myId = UserConfig.getInstance(acc).clientUserId;
-            if (ArrayUtil.contains(NekoXConfig.developers, myId)) {
-                hasDeveloper = true;
-                break;
-            }
-        }
-        return hasDeveloper;
+        return true;
     }
 
     public static String getOpenPGPAppName() {
