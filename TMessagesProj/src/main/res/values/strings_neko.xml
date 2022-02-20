@@ -144,5 +144,7 @@
     <string name="channelLabel">📢</string>
     <string name="forceBlurInChat">Force enable Chat Blur</string>
     <string name="ChatBlurAlphaValue">Chat Blur Alpha</string>
+    <string name="EditUndo">Undo</string>
+    <string name="EditRedo">Redo</string>
 
 </resources>
