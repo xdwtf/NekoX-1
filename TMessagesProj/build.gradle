@@ -375,6 +375,8 @@ dependencies {
     implementation 'cn.hutool:hutool-http:5.7.5'
     implementation "com.jakewharton:process-phoenix:2.1.2"
 
+    implementation "org.lsposed.hiddenapibypass:hiddenapibypass:4.3"
+
     compileOnly 'org.yaml:snakeyaml:1.29'
     fullImplementation 'org.yaml:snakeyaml:1.29'
 

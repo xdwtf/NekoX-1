@@ -133,4 +133,6 @@
     <string name="SaveToDownloadCount_other">正在保存%1$d个文件到下载</string>
     <string name="SaveToDownloadCount_few">正在保存%1$d个文件到下载</string>
     <string name="SaveToDownloadCount_many">正在保存%1$d个文件到下载</string>
+    <string name="EditUndo">撤销</string>
+    <string name="EditRedo">重做</string>
 </resources>
