@@ -1477,10 +1477,10 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
                                         }
                                     }
                                     if (exportingChatUri == null) {
-                                        path = AndroidUtilities.getPath(uri);
-                                        if (!BuildVars.NO_SCOPED_STORAGE) {
-                                            path = MediaController.copyFileToCache(uri, "file");
-                                        }
+//                                        path = AndroidUtilities.getPath(uri);
+//                                        if (!BuildVars.NO_SCOPED_STORAGE) {
+                                        path = MediaController.copyFileToCache(uri, "file");
+//                                        }
                                         if (path != null) {
                                             if (path.startsWith("file:")) {
                                                 path = path.replace("file://", "");
