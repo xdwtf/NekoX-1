@@ -14325,6 +14325,7 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                 }
             } catch (Exception e) {
                 FileLog.e(e);
+                return false;
             }
             MediaController.PhotoEntry entry = new MediaController.PhotoEntry(0, 0, 0, path, orientation, photoInfo.isVideo, 0, 0, 0);
             if (a == photoPathes.size() - 1 && caption != null) {
