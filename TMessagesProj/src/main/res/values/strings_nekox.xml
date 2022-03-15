@@ -272,4 +272,5 @@
     <string name="setChannelAliasName">Set Alias</string>
     <string name="labelChannelUser">Label Channel User</string>
     <string name="labelChannelUserDetails">If message sender is Channel,it will label it as \"Channel\"</string>
+    <string name="DeletedMessage">Deleted</string>
 </resources>
